@@ -1,0 +1,322 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Gippo India</title>
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCZqvddfWZgoAInykWWmDebp_ITkp0lq6E",
+            authDomain: "fir-realtime-db-web-8fa97.firebaseapp.com",
+            databaseURL: "https://fir-realtime-db-web-8fa97.firebaseio.com",
+            projectId: "fir-realtime-db-web-8fa97",
+            storageBucket: "fir-realtime-db-web-8fa97.appspot.com",
+            messagingSenderId: "755950261811"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Home XYZ</span>
+                <div class="mdl-layout-spacer"></div>
+                <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"> -->
+                <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+            <i class="material-icons">search</i>
+          </label> -->
+                <!-- <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" id="search">
+            <label class="mdl-textfield__label" for="search">Enter your query...</label>
+          </div> -->
+                <!-- </div> -->
+                <!-- <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+          <i class="material-icons">more_vert</i>
+        </button> -->
+                <!-- <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+          <li class="mdl-menu__item">About</li>
+          <li class="mdl-menu__item">Contact</li>
+          <li class="mdl-menu__item">Legal information</li>
+        </ul> -->
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src="images/user.jpg" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span>hello@example.com</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">Sign Out</li>
+                        <!-- <li class="mdl-menu__item">info@example.com</li>
+            <li class="mdl-menu__item"> -->
+                        <!-- <i class="material-icons">add</i>Add another account...</li> -->
+                    </ul>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+                <a class="mdl-navigation__link" href="#customer" onclick="return show_div('customer');">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mood</i>Customer</a>
+                <a class="mdl-navigation__link" href="#quotation" onclick="return show_div('quotation');">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assignment</i>Quotation</a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">3d_rotation</i>Trash</a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+                <a class="mdl-navigation__link" href="">
+                    <!-- <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+        <a class="mdl-navigation__link" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+        <a class="mdl-navigation__link" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+        <a class="mdl-navigation__link" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+        <div class="mdl-layout-spacer"></div> -->
+                    <a class="mdl-navigation__link" href="">
+                        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
+                        <span class="visuallyhidden">Help</span>
+                    </a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <!-- Customer **************************************************************************************************** -->
+            <div class="mdl-grid demo-content" id="customer" style="display: none;">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <!-- Colored raised button -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="addCustomer" onclick="addCustomer" style='margin-right:16px'>
+                        Add Customer
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="refresh" onclick="refreshCustomer">
+                        Refresh
+                    </button>
+                </div>
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <table id="customerTable">
+                        <thead>
+                            <col width="110">
+                            <col width="300">
+                            <col width="150">
+                            <col width="140">
+                            <col width="170">
+                            <col width="140">
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Company Name</th>
+                                <th>Location</th>
+                                <th>Mobile</th>
+                                <th>Contact Person</th>
+                                <th>GST Number</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Customer End **************************************************** -->
+
+            <!-- Quotation Start ******************************************************* -->
+            <div class="mdl-grid demo-content" id="quotation" style="display: none;">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <!-- Colored raised button -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="createQuotation" onclick="createQuotation"
+                        style='margin-right:5px'>
+                        Create Quotation
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="displayQuotation" id="displayQuotation"
+                        style='margin-right:5px'>
+                        Display
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="addRow" style='margin-right:5px'>
+                        Add Row
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="removeRow" style='margin-right:5px'>
+                        Remove Row
+                    </button>
+                </div>
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="createQuotationDiv">
+                    <div class="autocomplete">
+                        <input type="text" placeholder="Select company for Quotation" id="customerSearch">
+                        <span class="close">Cancel</span>
+                        <div class="dialog" id="test">
+                        </div>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="fill" onclick="fillCustomerData">
+                        Fill
+                    </button>
+                    <form style="background-color: #f9ffa2;">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="companynameform">
+                            <label class="mdl-textfield__label" for="companyname" id="companynamelabel">Company Name...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="locationform">
+                            <label class="mdl-textfield__label" for="location" id="locationlabel">Location...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="mobileform">
+                            <label class="mdl-textfield__label" for="mobile" id="mobilelabel">Mobile...</label>
+                            <!-- <span class="mdl-textfield__error">Input is not a number!</span> -->
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="contactform">
+                            <label class="mdl-textfield__label" for="contact" id="Contactlabel">Contact Person...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="gstform">
+                            <label class="mdl-textfield__label" for="gst" id="gstlabel">GST Number...</label>
+                        </div>
+                    </form>
+                    <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sos">
+                        <label class="mdl-textfield__label" for="sos">Scope of Supply</label>
+                    </div> -->
+                    <table id="goods">
+                        <thead>
+                            <col width="30">
+                            <col width="70">
+                            <col width="420">
+                            <col width="140">
+                            <col width="100">
+                            <col width="120">
+                            <col width="60">
+                            <tr>
+                                <th>Select</th>
+                                <th>Sr. No.</th>
+                                <th>Description of Goods</th>
+                                <th>HSN/SAC</th>
+                                <th>Qty.</th>
+                                <th>Rate INR</th>
+                                <th>Per</th>
+                                <th>Amount(INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="goodsBody">
+                            <tr>
+                                <td><input type="checkbox" name="chk" /></td>
+                                <td>1</td>
+                                <td><input type="text" name="description" /></td>
+                                <td><input type="text" name="HSN" /></td>
+                                <td><input type="text" name="Qty" pattern="[0-9]+" title="number only"/></td>
+                                <td><input type="text" name="Rate" pattern="[0-9]+" title="number only"/></td>
+                                <td><input type="text" name="Per" /></td>
+                                <td><input type="text" name="Amount" pattern="[0-9]+" title="number only"/></td>
+                            </tr>
+                        </tbody>
+                        <!-- <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric" contenteditable='true'>Acrylic (Transparent)</td>
+                                <td>25</td>
+                                <td>$2.90</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                                <td>50</td>
+                                <td>$1.25</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                                <td>10</td>
+                                <td>$2.35</td>
+                            </tr>
+                        </tbody> -->
+                    </table>
+                    <button class="colorbutton cbsubmit" id="submit" type="submit">Submit</button>
+                    <button class="colorbutton cbtotal" id="total">Total</button>
+                    <label style="margin-left: 5px;font-weight: 500" id="totallabel">Calculate Total</label>
+                    <!-- <input class="custominput" type="text" /> -->
+                    
+                </div>
+            </div>
+            <!-- Quotation End ********************************************************* -->
+        </main>
+    </div>
+    <!-- Customer Dialog for adding new customer -->
+    <dialog id="customerdialog" class="custom-dialog">
+        <h6 class="custom-dialog__title">Enter Customer Details</h6>
+        <div class="custom-dialog__content">
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="companyname" required>
+                    <label class="mdl-textfield__label" for="companyname">Company Name...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="location">
+                    <label class="mdl-textfield__label" for="location">Location...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="mobile">
+                    <label class="mdl-textfield__label" for="mobile">Mobile...</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="contact">
+                    <label class="mdl-textfield__label" for="contact">Contact Person...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="gst">
+                    <label class="mdl-textfield__label" for="gst">GST Number...</label>
+                </div>
+            </form>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="dialogsave">Save</button>
+            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="dialogcancel">Cancel</button>
+        </div>
+    </dialog>
+
+    <script src="app.js">
+    </script>
+    <!--MDB  -->
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- MDB -->
+</body>
+
+</html>
